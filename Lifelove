@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Namoro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff6b6b;
+        }
+        #contador {
+            font-size: 2em;
+            color: #4a90e2;
+        }
+        .fotos {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .fotos img {
+            width: 200px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Namoro</h1>
+    <p id="contador"></p>
+
+    <!-- Seção de fotos -->
+    <div class="fotos">
+        <img src="https://photos.app.goo.gl/K3rDxZfeT15j7sJi8" alt="Foto 1">
+        <img src="https://photos.app.goo.gl/tuWXfvXA1fE24QHC9" alt="Foto 2">
+        <img src="https://photos.app.goo.gl/ZvmzEWePKeMCRWqbA" alt="Foto 3">
+    </div>
+
+    <script>
+        function calcularDiasDeNamoro(dataInicio) {
+            const hoje = new Date();
+            const inicio = new Date(dataInicio);
+            const diffTime = Math.abs(hoje - inicio);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        const dataInicio = '2016-04-08';  // Data de início do namoro (ano-mês-dia)
+        const diasDeNamoro = calcularDiasDeNamoro(dataInicio);
+
+        document.getElementById('contador').innerText = `Vocês estão juntos há ${diasDeNamoro} dias!`;
+    </script>
+</body>
+</html>
